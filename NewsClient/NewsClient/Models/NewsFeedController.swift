@@ -17,7 +17,7 @@ class NewsFeedController: NSObject {
     private let cellIdentifier = "newsCell"
     
     private let api = NewsAPI()
-    private var dataSource = [NewsItem]()
+    private var dataSource = [NewsItemResponse]()
     weak var tableView: UITableView?
     weak var delegate: NewsFeedControllerDelegate?
     

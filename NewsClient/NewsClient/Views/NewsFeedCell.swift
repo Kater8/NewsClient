@@ -20,7 +20,7 @@ class NewsFeedCell: UITableViewCell {
     
     weak var delegate: NewsFeedCellDelegate?
     
-    func setup(with newsItem: NewsItem, delegate: NewsFeedCellDelegate?) {
+    func setup(with newsItem: NewsItemResponse, delegate: NewsFeedCellDelegate?) {
         self.delegate = delegate
         titleLabel.text = newsItem.title
         descriptionLabel.text = newsItem.description

@@ -15,7 +15,6 @@ class NewsAPI {
         }
         
         URLSession.shared.dataTask(with: url) { (data, URLResponse, requestError) in
-            
             if requestError != nil {
                 error()
                 return
