@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="173" id="WHW-Hw-PME" customClass="NewsFeedCell" customModule="NewsClient" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="173"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WHW-Hw-PME" id="xFb-2C-vcx">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="173"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OEc-Be-KYw">
+                        <rect key="frame" x="8" y="8" width="398" height="90"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="90" id="eeL-Ny-Wsa"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAa-XX-Jhf">
+                        <rect key="frame" x="8" y="106" width="41.5" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s1Z-O7-5Uo">
+                        <rect key="frame" x="353.5" y="126" width="44.5" height="31"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" image="square.and.arrow.up" catalog="system" title=""/>
+                        <connections>
+                            <action selector="shareAction:" destination="WHW-Hw-PME" eventType="touchUpInside" id="DTS-We-SYk"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="llf-ei-hlz">
+                        <rect key="frame" x="300" y="126" width="45.5" height="31"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system" title=""/>
+                        <connections>
+                            <action selector="favAction:" destination="WHW-Hw-PME" eventType="touchUpInside" id="oQB-Ra-QH4"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4i1-kz-t60">
+                        <rect key="frame" x="8" y="135" width="35.5" height="22"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="LAa-XX-Jhf" secondAttribute="trailing" constant="8" id="13f-R9-2nb"/>
+                    <constraint firstItem="OEc-Be-KYw" firstAttribute="leading" secondItem="xFb-2C-vcx" secondAttribute="leading" constant="8" id="4uT-DN-BYg"/>
+                    <constraint firstItem="llf-ei-hlz" firstAttribute="centerY" secondItem="s1Z-O7-5Uo" secondAttribute="centerY" id="5ga-Om-EYr"/>
+                    <constraint firstItem="OEc-Be-KYw" firstAttribute="top" secondItem="xFb-2C-vcx" secondAttribute="top" constant="8" id="5vz-Yw-7au"/>
+                    <constraint firstItem="LAa-XX-Jhf" firstAttribute="leading" secondItem="xFb-2C-vcx" secondAttribute="leading" constant="8" id="FUm-vN-Huh"/>
+                    <constraint firstItem="llf-ei-hlz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="4i1-kz-t60" secondAttribute="trailing" constant="8" id="OSU-eU-7FB"/>
+                    <constraint firstItem="s1Z-O7-5Uo" firstAttribute="leading" secondItem="llf-ei-hlz" secondAttribute="trailing" constant="8" id="R5a-qD-ZwN"/>
+                    <constraint firstItem="4i1-kz-t60" firstAttribute="leading" secondItem="xFb-2C-vcx" secondAttribute="leading" constant="8" id="Uqb-eG-eux"/>
+                    <constraint firstItem="LAa-XX-Jhf" firstAttribute="top" secondItem="OEc-Be-KYw" secondAttribute="bottom" constant="8" id="eEk-Nm-vUD"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="llf-ei-hlz" secondAttribute="bottom" constant="5" id="f04-jM-vKt"/>
+                    <constraint firstItem="4i1-kz-t60" firstAttribute="top" secondItem="LAa-XX-Jhf" secondAttribute="bottom" constant="8" id="fQ2-dC-FSy"/>
+                    <constraint firstAttribute="trailing" secondItem="s1Z-O7-5Uo" secondAttribute="trailing" constant="16" id="fow-UG-rpc"/>
+                    <constraint firstAttribute="bottom" secondItem="4i1-kz-t60" secondAttribute="bottom" constant="16" id="tNx-VV-zxf"/>
+                    <constraint firstAttribute="trailing" secondItem="OEc-Be-KYw" secondAttribute="trailing" constant="8" id="uwx-v6-8h8"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="descriptionLabel" destination="4i1-kz-t60" id="Kgm-ve-BLd"/>
+                <outlet property="favButton" destination="llf-ei-hlz" id="mKj-W3-omU"/>
+                <outlet property="mainImageView" destination="OEc-Be-KYw" id="NZc-vg-h7q"/>
+                <outlet property="shareButton" destination="s1Z-O7-5Uo" id="X1w-AZ-XAV"/>
+                <outlet property="titleLabel" destination="LAa-XX-Jhf" id="ygu-O6-YEd"/>
+            </connections>
+            <point key="canvasLocation" x="-413.04347826086962" y="114.84375"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+    </resources>
+</document>
