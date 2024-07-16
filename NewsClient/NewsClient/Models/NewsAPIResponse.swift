@@ -8,7 +8,7 @@
 import Foundation
 
 struct NewsAPIResponse: Codable {
-    let articles: [NewsItem]
+    let articles: [NewsItemResponse]
 }
 
 extension NewsAPIResponse {

@@ -20,20 +20,20 @@ class NewsFeedCell: UITableViewCell {
     
     weak var delegate: NewsFeedCellDelegate?
     
-    func setup(with newsItem: NewsItem, delegate: NewsFeedCellDelegate?) {
+    func setup(with newsItem: NewsItemViewModel, delegate: NewsFeedCellDelegate?) {
         self.delegate = delegate
         titleLabel.text = newsItem.title
         descriptionLabel.text = newsItem.description
         let publishedAt = newsItem.publishedAt ?? Date.now
         dateLabel.text = publishedAt.timeAgoDisplay()
-        if let urlString = newsItem.urlToImage,
-           let url = URL(string: urlString) {
+        if let url = newsItem.urlToImage {
             mainImageView.contentMode = .scaleAspectFill
             mainImageView.sd_setImage(with: url)
         } else {
             mainImageView.contentMode = .scaleAspectFit
             mainImageView.image = UIImage(systemName: "newspaper.fill")
         }
+        favButton.setImage(UIImage(systemName: newsItem.isFavorite ? "heart.fill" : "heart"), for: .normal)
     }
     
    // MARK: Actions
