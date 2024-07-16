@@ -11,16 +11,31 @@
         <!--Favorites-->
         <scene sceneID="vT8-oK-Wue">
             <objects>
-                <viewController id="ULa-Qv-wr8" sceneMemberID="viewController">
+                <viewController id="ULa-Qv-wr8" customClass="FavoritesViewController" customModule="NewsClient" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="X9w-pN-lCv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="kOY-wy-sf9">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="JHK-0Q-Jxm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="kOY-wy-sf9" firstAttribute="top" secondItem="JHK-0Q-Jxm" secondAttribute="top" id="82G-pN-iWz"/>
+                            <constraint firstItem="JHK-0Q-Jxm" firstAttribute="trailing" secondItem="kOY-wy-sf9" secondAttribute="trailing" id="eyF-jS-79s"/>
+                            <constraint firstItem="JHK-0Q-Jxm" firstAttribute="bottom" secondItem="kOY-wy-sf9" secondAttribute="bottom" id="hQH-dn-61f"/>
+                            <constraint firstItem="kOY-wy-sf9" firstAttribute="leading" secondItem="JHK-0Q-Jxm" secondAttribute="leading" id="wkO-9Y-81Y"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Favorites" image="heart.fill" catalog="system" id="HvD-dK-PhZ">
                         <color key="badgeColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="tableView" destination="kOY-wy-sf9" id="DzI-bu-yoP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4rs-6t-ddk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

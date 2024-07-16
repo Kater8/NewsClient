@@ -11,6 +11,7 @@ import CoreData
 
 protocol NewsFeedControllerDelegate: AnyObject {
     func refreshUI()
+    func share(item: NewsItemViewModel)
 }
 
 class NewsFeedController: NSObject {
@@ -30,27 +31,6 @@ class NewsFeedController: NSObject {
         tableView?.dataSource = self
     }
     
-    func deleteAllData()
-    {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NewsItem.fetchRequest()
-        fetchRequest.returnsObjectsAsFaults = false
-
-        do
-        {
-            let results = try! managedContext.fetch(fetchRequest)
-            for managedObject in results
-            {
-                let managedObjectData:NSManagedObject = managedObject as! NSManagedObject
-                managedContext.delete(managedObjectData)
-            }
-            try! managedContext.save()
-
-        } catch let error as NSError {
-        }
-    }
-
     func loadData() {
         api.fetchData { response in
             DispatchQueue.main.async { [weak self] in
@@ -166,7 +146,6 @@ class NewsFeedController: NSObject {
             let managedContext = appDelegate.persistentContainer.viewContext
 
             let request = NewsItem.fetchRequest()
-            let sort = NSSortDescriptor(key: "publishedAt", ascending: true)
             if let url = item.url,
             let nsUrl = NSURL(string: url.absoluteString) {
                 request.predicate = NSPredicate(format: "url == %@", nsUrl as CVarArg)
@@ -219,5 +198,8 @@ extension NewsFeedController: NewsFeedCellDelegate {
     }
     
     func didTapShare(_ cell: UITableViewCell) {
+        if let item = item(in: cell) {
+            delegate?.share(item: item)
+        }
     }
 }

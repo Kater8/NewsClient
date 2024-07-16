@@ -1,19 +1,19 @@
 //
-//  NewsFeedViewController.swift
+//  FavoritesViewController.swift
 //  NewsClient
 //
-//  Created by K on 12.07.2024.
+//  Created by K on 17.07.2024.
 //
 
 import Foundation
 import UIKit
 
-class NewsFeedViewController: UIViewController {
+class FavoritesViewController: UIViewController {
     // MARK: Outlets
     @IBOutlet private weak var tableView: UITableView!
     
     // MARK: Properties
-    private let controller = NewsFeedController()
+    private let controller = FavoritesController()
     
     // MARK: UIViewController
     
@@ -26,7 +26,7 @@ class NewsFeedViewController: UIViewController {
         super.viewWillAppear(animated)
         controller.loadData()
     }
-
+    
     // MARK: Private methods
     
     private func setup() {
@@ -36,8 +36,8 @@ class NewsFeedViewController: UIViewController {
     }
 }
 
-// MARK: - NewsFeedControllerDelegate
-extension NewsFeedViewController: NewsFeedControllerDelegate {
+// MARK: - FavoritesControllerDelegate
+extension FavoritesViewController: FavoritesControllerDelegate {
     func refreshUI() {
         DispatchQueue.main.async { [weak self] in
             self?.tableView.reloadData()

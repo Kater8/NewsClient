@@ -43,7 +43,7 @@ class NewsFeedCell: UITableViewCell {
     }
     
     @IBAction func shareAction(_ sender: UIButton) {
-        
+        delegate?.didTapShare(self)
     }
 }
 
