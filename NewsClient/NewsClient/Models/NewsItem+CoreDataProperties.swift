@@ -15,7 +15,6 @@ extension NewsItem {
     @nonobjc public class func fetchRequest() -> NSFetchRequest<NewsItem> {
         return NSFetchRequest<NewsItem>(entityName: "NewsItem")
     }
-    @NSManaged public var id: NSNumber?
     @NSManaged public var isFavorite: NSNumber?
     @NSManaged public var detail: String?
     @NSManaged public var publishedAt: Date?
