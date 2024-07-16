@@ -17,22 +17,22 @@ extension NewsAPIResponse {
             .init(
                 title: "A",
                 description: "Title A",
-                url: URL(string: "https://financialpost.com/investing/apple-nvidia-big-tech-stocks-steve-eisman"),
-                urlToImage:  URL(string: "https://smartcdn.gprod.postmedia.digital/financialpost/wp-content/uploads/2024/07/0713-bc-stocks-.jpg"),
+                url: "https://financialpost.com/investing/apple-nvidia-big-tech-stocks-steve-eisman",
+                urlToImage: "https://smartcdn.gprod.postmedia.digital/financialpost/wp-content/uploads/2024/07/0713-bc-stocks-.jpg",
                 publishedAt: Date.now
             ),
             .init(
                 title: "B",
                 description: "Title B",
-                url: URL(string: "https://financialpost.com/investing/apple-nvidia-big-tech-stocks-steve-eisman"),
-                urlToImage:  URL(string: "https://smartcdn.gprod.postmedia.digital/financialpost/wp-content/uploads/2024/07/0713-bc-stocks-.jpg"),
+                url: "https://financialpost.com/investing/apple-nvidia-big-tech-stocks-steve-eisman",
+                urlToImage: "https://smartcdn.gprod.postmedia.digital/financialpost/wp-content/uploads/2024/07/0713-bc-stocks-.jpg",
                 publishedAt: Date.now
             ),
             .init(
                 title: "C",
                 description: "Title C",
-                url: URL(string: "https://financialpost.com/investing/apple-nvidia-big-tech-stocks-steve-eisman"),
-                urlToImage:  URL(string: "https://smartcdn.gprod.postmedia.digital/financialpost/wp-content/uploads/2024/07/0713-bc-stocks-.jpg"),
+                url: "https://financialpost.com/investing/apple-nvidia-big-tech-stocks-steve-eisman",
+                urlToImage: "https://smartcdn.gprod.postmedia.digital/financialpost/wp-content/uploads/2024/07/0713-bc-stocks-.jpg",
                 publishedAt: Date.now
             ),
 

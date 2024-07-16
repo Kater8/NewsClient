@@ -37,9 +37,22 @@ class NewsFeedController: NSObject {
             print("API error")
         }
     }
+    
+    // MARK: - Private methods
+    
+    private func showDetails(at indexPath: IndexPath) {
+        let item = dataSource[indexPath.row]
+        if let detailsURL = URL(string: item.url ?? "") {
+            UIApplication.shared.open(detailsURL)
+        }
+    }
 }
 
 extension NewsFeedController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        showDetails(at: indexPath)
+    }
 }
 
 extension NewsFeedController: UITableViewDataSource {
