@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 struct NewsItemResponse: Codable {
     let title: String
     let description: String?

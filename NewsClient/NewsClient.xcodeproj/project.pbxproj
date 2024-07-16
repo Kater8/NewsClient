@@ -24,6 +24,7 @@
 		0A69DCFC2C46FCAE0069DA45 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 0A69DCFB2C46FCAE0069DA45 /* SDWebImage */; };
 		0A69DD072C47037B0069DA45 /* NewsItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A69DD052C47037B0069DA45 /* NewsItem+CoreDataClass.swift */; };
 		0A69DD082C47037B0069DA45 /* NewsItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A69DD062C47037B0069DA45 /* NewsItem+CoreDataProperties.swift */; };
+		0A69DD0A2C47045D0069DA45 /* NewsItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A69DD092C47045D0069DA45 /* NewsItemViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		0A69DCF82C46A5CB0069DA45 /* NewsFeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsFeedCell.xib; sourceTree = "<group>"; };
 		0A69DD052C47037B0069DA45 /* NewsItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewsItem+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0A69DD062C47037B0069DA45 /* NewsItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewsItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0A69DD092C47045D0069DA45 /* NewsItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsItemViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				0A69DCE82C415B000069DA45 /* NewsFeedController.swift */,
 				0A69DCEC2C415C460069DA45 /* NewsItemResponse.swift */,
 				0A69DCEE2C415CEE0069DA45 /* NewsAPIResponse.swift */,
+				0A69DD092C47045D0069DA45 /* NewsItemViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A69DD0A2C47045D0069DA45 /* NewsItemViewModel.swift in Sources */,
 				0A69DCF42C4162A30069DA45 /* NewsFeedCell.swift in Sources */,
 				0A69DCCF2C415A650069DA45 /* ViewController.swift in Sources */,
 				0A69DCCB2C415A650069DA45 /* AppDelegate.swift in Sources */,
