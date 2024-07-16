@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct NewsAPIResponse {
+struct NewsAPIResponse: Codable {
     let articles: [NewsItem]
 }
 
