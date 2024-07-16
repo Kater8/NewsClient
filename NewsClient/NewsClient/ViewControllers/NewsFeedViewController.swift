@@ -35,6 +35,8 @@ class NewsFeedViewController: UIViewController {
 // MARK: - NewsFeedControllerDelegate
 extension NewsFeedViewController: NewsFeedControllerDelegate {
     func refreshUI() {
-        tableView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            self?.tableView.reloadData()
+        }
     }
 }

@@ -8,11 +8,10 @@
 import Foundation
 
 
-struct NewsItem {
+struct NewsItem: Codable {
     let title: String
-    let description: String
+    let description: String?
     let url: String?
     let urlToImage: String?
     let publishedAt: Date?
 }
-

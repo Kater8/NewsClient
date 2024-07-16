@@ -21,6 +21,7 @@
 		0A69DCF02C415E5E0069DA45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A69DCD82C415A680069DA45 /* LaunchScreen.storyboard */; };
 		0A69DCF42C4162A30069DA45 /* NewsFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A69DCF32C4162A30069DA45 /* NewsFeedCell.swift */; };
 		0A69DCF92C46A5CB0069DA45 /* NewsFeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A69DCF82C46A5CB0069DA45 /* NewsFeedCell.xib */; };
+		0A69DCFC2C46FCAE0069DA45 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 0A69DCFB2C46FCAE0069DA45 /* SDWebImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A69DCFC2C46FCAE0069DA45 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +149,9 @@
 			dependencies = (
 			);
 			name = NewsClient;
+			packageProductDependencies = (
+				0A69DCFB2C46FCAE0069DA45 /* SDWebImage */,
+			);
 			productName = NewsClient;
 			productReference = 0A69DCC72C415A650069DA45 /* NewsClient.app */;
 			productType = "com.apple.product-type.application";
@@ -175,6 +180,9 @@
 				Base,
 			);
 			mainGroup = 0A69DCBE2C415A650069DA45;
+			packageReferences = (
+				0A69DCFA2C46FCAE0069DA45 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = 0A69DCC82C415A650069DA45 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -428,6 +436,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0A69DCFA2C46FCAE0069DA45 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0A69DCFB2C46FCAE0069DA45 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0A69DCFA2C46FCAE0069DA45 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		0A69DCD32C415A650069DA45 /* NewsClient.xcdatamodeld */ = {

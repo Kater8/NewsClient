@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SDWebImage
 
 class NewsFeedCell: UITableViewCell {
     @IBOutlet weak var mainImageView: UIImageView!
@@ -25,8 +26,13 @@ class NewsFeedCell: UITableViewCell {
         descriptionLabel.text = newsItem.description
         let publishedAt = newsItem.publishedAt ?? Date.now
         dateLabel.text = publishedAt.timeAgoDisplay()
-        if let imageURL = URL(string: newsItem.urlToImage ?? "") {
-            mainImageView.load(url: imageURL)
+        if let urlString = newsItem.urlToImage,
+           let url = URL(string: urlString) {
+            mainImageView.contentMode = .scaleAspectFill
+            mainImageView.sd_setImage(with: url)
+        } else {
+            mainImageView.contentMode = .scaleAspectFit
+            mainImageView.image = UIImage(systemName: "newspaper.fill")
         }
     }
     
