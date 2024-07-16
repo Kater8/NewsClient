@@ -88,9 +88,8 @@ class NewsFeedController: NSObject {
           appDelegate.persistentContainer.viewContext
         
         let storedItems = fetchStoredData()
-        response.enumerated().forEach { self.store(
-            item: $0.element,
-            id: $0.offset,
+        response.forEach { self.store(
+            item: $0,
             in: managedContext,
             storedItems: storedItems)
         }
@@ -101,7 +100,7 @@ class NewsFeedController: NSObject {
         }
     }
     
-    private func store(item: NewsItemResponse, id: Int, in managedContext: NSManagedObjectContext, storedItems: [NewsItem]) {
+    private func store(item: NewsItemResponse, in managedContext: NSManagedObjectContext, storedItems: [NewsItem]) {
         let entity =
         NSEntityDescription.entity(forEntityName: "NewsItem",
                                    in: managedContext)!
@@ -115,14 +114,12 @@ class NewsFeedController: NSObject {
             coreDataObject = NSManagedObject(entity: entity,
                                              insertInto: managedContext)
         }
-        coreDataObject.setValue(id, forKeyPath: "id")
         coreDataObject.setValue(item.title, forKeyPath: "title")
         coreDataObject.setValue(item.description, forKeyPath: "detail")
         coreDataObject.setValue(URL(string: item.url ?? ""), forKeyPath: "url")
         coreDataObject.setValue(URL(string: item.urlToImage ?? ""), forKeyPath: "urlToImage")
         coreDataObject.setValue(item.publishedAt, forKeyPath: "publishedAt")
     }
-    
     
     private func fetchStoredData() -> [NewsItem] {
         guard let appDelegate =
@@ -133,7 +130,7 @@ class NewsFeedController: NSObject {
         let managedContext = appDelegate.persistentContainer.viewContext
 
         let request = NewsItem.fetchRequest()
-        let sort = NSSortDescriptor(key: "id", ascending: false)
+        let sort = NSSortDescriptor(key: "publishedAt", ascending: true)
         request.sortDescriptors = [sort]
 
         do {
@@ -142,11 +139,56 @@ class NewsFeedController: NSObject {
             return []
         }
     }
+    
     private func updateDataSource(with items: [NewsItem]) {
         self.dataSource = items.map({ item in
             NewsItemViewModel.newInstance(with: item)
         })
         self.delegate?.refreshUI()
+    }
+    
+    private func item(in cell: UITableViewCell) -> NewsItemViewModel? {
+        if let indexPath = tableView?.indexPath(for: cell) {
+            return dataSource[indexPath.row]
+        } else {
+             return nil
+        }
+    }
+    
+    private func changeFavoriteFor(item: NewsItemViewModel) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            guard let appDelegate =
+              UIApplication.shared.delegate as? AppDelegate else {
+              return
+            }
+            
+            let managedContext = appDelegate.persistentContainer.viewContext
+
+            let request = NewsItem.fetchRequest()
+            let sort = NSSortDescriptor(key: "publishedAt", ascending: true)
+            if let url = item.url,
+            let nsUrl = NSURL(string: url.absoluteString) {
+                request.predicate = NSPredicate(format: "url == %@", nsUrl as CVarArg)
+            } else {
+                request.predicate = NSPredicate(format: "title == %@", item.title)
+            }
+            do {
+                if let result = try managedContext.fetch(request).first {
+                    if result.isFavorite?.boolValue == true {
+                        result.isFavorite = false
+                    } else {
+                        result.isFavorite = true
+                    }
+                }
+                try managedContext.save()
+                let updated = self.fetchStoredData()
+                self.updateDataSource(with: updated)
+            } catch {
+                return
+            }
+
+        }
     }
 }
 
@@ -171,6 +213,9 @@ extension NewsFeedController: UITableViewDataSource {
 
 extension NewsFeedController: NewsFeedCellDelegate {
     func didTapFavorite(_ cell: UITableViewCell) {
+        if let item = item(in: cell) {
+            changeFavoriteFor(item: item)
+        }
     }
     
     func didTapShare(_ cell: UITableViewCell) {

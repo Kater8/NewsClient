@@ -39,6 +39,7 @@ class NewsFeedCell: UITableViewCell {
    // MARK: Actions
     
     @IBAction func favAction(_ sender: UIButton) {
+        delegate?.didTapFavorite(self)
     }
     
     @IBAction func shareAction(_ sender: UIButton) {
