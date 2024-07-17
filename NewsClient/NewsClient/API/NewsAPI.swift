@@ -33,6 +33,5 @@ class NewsAPI {
                 print("Error decoding:\n\(error)")
             }
         }.resume()
-
     }
 }

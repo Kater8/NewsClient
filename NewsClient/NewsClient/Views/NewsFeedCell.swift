@@ -52,21 +52,6 @@ protocol NewsFeedCellDelegate: AnyObject {
     func didTapShare(_ cell: UITableViewCell)
 }
 
-
-extension UIImageView {
-    func load(url: URL) {
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: url) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        self?.image = image
-                    }
-                }
-            }
-        }
-    }
-}
-
 extension Date {
     func timeAgoDisplay() -> String {
         let formatter = RelativeDateTimeFormatter()

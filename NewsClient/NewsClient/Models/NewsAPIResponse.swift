@@ -35,7 +35,6 @@ extension NewsAPIResponse {
                 urlToImage: "https://smartcdn.gprod.postmedia.digital/financialpost/wp-content/uploads/2024/07/0713-bc-stocks-.jpg",
                 publishedAt: Date.now
             ),
-
         ])
     }
 }

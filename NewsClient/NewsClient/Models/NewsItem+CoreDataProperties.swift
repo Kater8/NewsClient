@@ -21,7 +21,6 @@ extension NewsItem {
     @NSManaged public var title: String?
     @NSManaged public var url: URL?
     @NSManaged public var urlToImage: URL?
-
 }
 
 extension NewsItem : Identifiable {
